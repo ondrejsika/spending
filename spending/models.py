@@ -1,5 +1,7 @@
 from __future__ import unicode_literals
 
+import datetime
+
 from django.db import models
 
 
@@ -62,7 +64,7 @@ class Tx(models.Model):
     amount = models.FloatField()
     label = models.CharField(max_length=255, default='', blank=True)
     # tags = models.ManyToManyField(Tag, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=datetime.datetime.now)
 
     drv_balance = models.FloatField(null=True, blank=True)
 
